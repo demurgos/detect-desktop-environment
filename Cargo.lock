@@ -1,0 +1,4 @@
+[[package]]
+name = "detect-desktop-environment"
+version = "0.1.0"
+
