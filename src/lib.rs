@@ -40,6 +40,7 @@ impl DesktopEnvironment {
           "LXDE" => DesktopEnvironment::Lxde,
           "LXQt" => DesktopEnvironment::Lxqt,
           "MATE" => DesktopEnvironment::Mate,
+          "pop:GNOME" => DesktopEnvironment::Gnome,
           "Unity" => DesktopEnvironment::Unity,
           "X-Cinnamon" => DesktopEnvironment::Cinnamon,
           "XFCE" => DesktopEnvironment::Xfce,
