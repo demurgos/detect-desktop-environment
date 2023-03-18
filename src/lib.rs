@@ -26,6 +26,10 @@ pub enum DesktopEnvironment {
   Cinnamon,
   /// COSMIC, the default desktop environment for Linux Pop!_OS.
   ///
+  /// Note: This corresponds to the classic COSMIC based on GNOME, not the Rust
+  /// [COSMIC-epoch](https://github.com/pop-os/cosmic-epoch). Please send a PR if you can
+  /// test how to detect cosmic-epoch.
+  ///
   /// - <https://github.com/pop-os/cosmic>
   Cosmic,
   /// Enlightenment desktop environment.

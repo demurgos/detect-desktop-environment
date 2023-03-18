@@ -11,7 +11,13 @@ keywords = ["desktop-environment", "detect", "env"]
 categories = ["gui", "os"]
 license = "MIT"
 edition = "2021"
-rust-version = "1.56"
+# Rust support policy:
+# - The 8 last stable versions are supported (1 year)
+# - Other versions are supported on a best-effort basis
+# - There are no dependencies yet. If dependencies are ever added they either
+#   have the same or stronger policy, or they should be controlled by opt-in features.
+# - Bumping the `rust-version` is a semver-minor change.
+rust-version = "1.56.1"
 
 [lib]
 name = "detect_desktop_environment"
