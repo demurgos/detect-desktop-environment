@@ -11,8 +11,6 @@ Please also report possible naming issues.
 ## Usage
 
 ```rust
-extern crate detect_desktop_environment;
-
 use detect_desktop_environment::DesktopEnvironment;
 
 fn main() {

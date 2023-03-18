@@ -3,12 +3,15 @@ name = "detect-desktop-environment"
 version = "0.2.0"
 authors = ["Charles Samborski <demurgos@demurgos.net>"]
 description = "Autodetect the desktop environment"
-documentation = "https://github.com/demurgos/detect-desktop-environment"
+documentation = "https://docs.rs/detect-desktop-environment/latest/detect_desktop_environment/"
 homepage = "https://github.com/demurgos/detect-desktop-environment"
 repository = "https://github.com/demurgos/detect-desktop-environment"
 readme = "./README.md"
 keywords = ["desktop-environment", "detect", "env"]
+categories = ["gui", "os"]
 license = "MIT"
+edition = "2021"
+rust-version = "1.56"
 
 [lib]
 name = "detect_desktop_environment"
