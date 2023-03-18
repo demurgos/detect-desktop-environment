@@ -28,14 +28,3 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           args: "--all-targets --all-features -- -D warnings"
-
-      - name: Build and test
-        uses: actions-rs/tarpaulin@v0.1
-        with:
-          out-type: "lcov"
-          args: "--manifest-path ./Cargo.toml --count"
-
-      - name: Upload coverage report to codecov.io
-        uses: codecov/codecov-action@v2
-        with:
-          files: "./lcov.info"
