@@ -17,23 +17,24 @@
 //! ```
 
 /// Desktop environments supported by `detect-desktop-environment`.
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 #[non_exhaustive]
 pub enum DesktopEnvironment {
   /// Cinnamon, the default desktop environment for Linux Mint.
   ///
   /// - <https://en.wikipedia.org/wiki/Cinnamon_(desktop_environment)>
   Cinnamon,
+  /// COSMIC, the default desktop environment for Linux Pop!_OS.
+  ///
+  /// - <https://github.com/pop-os/cosmic>
+  Cosmic,
   /// Enlightenment desktop environment.
   ///
   /// - <https://en.wikipedia.org/wiki/Enlightenment_(software)>
   Enlightenment,
   /// Gnome, the default environment for many major Linux distributions.
   ///
-  /// This also covers the COSMIC variant used by Pop!_OS.
-  ///
   /// - <https://en.wikipedia.org/wiki/GNOME>
-  /// - <https://github.com/pop-os/cosmic>
   Gnome,
   /// KDE Plasma, the Kool Desktop Environment.
   ///
@@ -71,6 +72,49 @@ impl DesktopEnvironment {
   /// If the current desktop environment can't be detected, `None` is returned.
   pub fn detect() -> Option<Self> {
     Self::detect_impl()
+  }
+
+  /// Test if the desktop environment is based on the GTK framework
+  ///
+  /// See <https://en.wikipedia.org/wiki/Category:Desktop_environments_based_on_GTK>
+  ///
+  /// ```
+  /// use detect_desktop_environment::DesktopEnvironment;
+  ///
+  /// // All matching desktop environments:
+  /// assert!(DesktopEnvironment::Cinnamon.gtk());
+  /// assert!(DesktopEnvironment::Cosmic.gtk());
+  /// assert!(DesktopEnvironment::Gnome.gtk());
+  /// assert!(DesktopEnvironment::Lxde.gtk());
+  /// assert!(DesktopEnvironment::Mate.gtk());
+  /// assert!(DesktopEnvironment::Unity.gtk());
+  /// assert!(DesktopEnvironment::Xfce.gtk());
+  ///
+  /// // Non-GTK examples
+  /// assert!(!DesktopEnvironment::Kde.gtk());
+  /// assert!(!DesktopEnvironment::Windows.gtk());
+  /// ```
+  pub const fn gtk(self) -> bool {
+    use DesktopEnvironment::*;
+    matches!(self, Cinnamon | Cosmic | Gnome | Lxde | Mate | Unity | Xfce)
+  }
+
+  /// Test if the desktop environment is based on the Qt framework
+  ///
+  /// ```
+  /// use detect_desktop_environment::DesktopEnvironment;
+  ///
+  /// // All matching desktop environments:
+  /// assert!(DesktopEnvironment::Kde.qt());
+  /// assert!(DesktopEnvironment::Lxqt.qt());
+  ///
+  /// // Non-Qt examples
+  /// assert!(!DesktopEnvironment::Gnome.qt());
+  /// assert!(!DesktopEnvironment::Windows.qt());
+  /// ```
+  pub const fn qt(self) -> bool {
+    use DesktopEnvironment::*;
+    matches!(self, Kde | Lxqt)
   }
 
   #[cfg(target_os = "macos")]

@@ -5,6 +5,8 @@
 - **[Breaking change]**: Remove `DesktopEnvironment::Unknown`, replaced by `detect` returning an `Option`.
 - **[Breaking change]** Require Rust 1.56.0.
 - **[Feature]**: Detect the `COSMIC` DE from Pop!_OS (@Pixelstormer, [#1](https://github.com/demurgos/detect-desktop-environment/pull/1))
+- **[Feature]**: Implement `Clone`, `Copy`, `PartialOrd`, `Ord`, `Hash`.
+- **[Feature]**: Add the methods `gtk` and `qt` to test the GUI framework used by the desktop framework.
 
 # 0.2.0 (2017-12-02)
 
