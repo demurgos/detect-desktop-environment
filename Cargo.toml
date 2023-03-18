@@ -1,6 +1,6 @@
 [package]
 name = "detect-desktop-environment"
-version = "0.2.0"
+version = "1.0.0"
 authors = ["Charles Samborski <demurgos@demurgos.net>"]
 description = "Autodetect the desktop environment"
 documentation = "https://docs.rs/detect-desktop-environment/latest/detect_desktop_environment/"
