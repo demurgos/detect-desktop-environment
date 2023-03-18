@@ -3,6 +3,8 @@ extern crate detect_desktop_environment;
 use detect_desktop_environment::DesktopEnvironment;
 
 fn main() {
-  let de: DesktopEnvironment = DesktopEnvironment::detect();
-  println!("{:?}", de);
+  match DesktopEnvironment::detect() {
+    Some(de) => println!("detected desktop environment: {de:?}"),
+    None => println!("failed to detect desktop environment"),
+  }
 }

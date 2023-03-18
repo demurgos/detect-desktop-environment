@@ -8,24 +8,22 @@ This library is stable. If you have an issue or want to add a desktop environmen
 a Github issue or send a PR.
 Please also report possible naming issues.
 
-## Installation
-
-
 ## Usage
 
 ```rust
 extern crate detect_desktop_environment;
 
-use detect_desktop_environment::{DesktopEnvironment, detect};
+use detect_desktop_environment::DesktopEnvironment;
 
 fn main() {
-  let de: DesktopEnvironment = detect();
-  println!("{:?}", de);
+    match DesktopEnvironment::detect() {
+        Some(de) => println!("detected desktop environment: {de:?}"),
+        None => println!("failed to detect desktop environment"),
+    }
 }
-
 ```
 
-This library exposes two symbols: the `detect` function and it return value: the
+This library exposes two symbols: the `detect` function and it returns value: the
 `DesktopValue` enum. All the variants are listed below in the "Supported environments"
 section.
 
@@ -39,9 +37,8 @@ section.
 | `Kde`           | ![Kde](./thumbnails/kde.png)                     |
 | `Lxde`          | ![Lxde](./thumbnails/lxde.png)                   |
 | `Lxqt`          | ![Lxqt](./thumbnails/lxqt.png)                   |
-| `MacOs`         | ![MacOs](./thumbnails/mac-os.png)                  |
+| `MacOs`         | ![MacOs](./thumbnails/mac-os.png)                |
 | `Mate`          | ![Mate](./thumbnails/mate.png)                   |
 | `Unity`         | ![Unity](./thumbnails/unity.png)                 |
-| `Windows`       | ![Windows](./thumbnails/windows.png)                 |
+| `Windows`       | ![Windows](./thumbnails/windows.png)             |
 | `Xfce`          | ![Xfce](./thumbnails/xfce.png)                   |
-| `Unknown`       |                                                  |

@@ -1,0 +1,5 @@
+# Usage:
+# ```
+# cargo clippy --all-targets --all-features -- -D warnings
+# ```
+# This config is deliberately empty: explicitly use the default config for Clippy.
