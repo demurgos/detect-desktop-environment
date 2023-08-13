@@ -148,6 +148,7 @@ impl DesktopEnvironment {
         "Unity" => Some(DesktopEnvironment::Unity),
         "X-Cinnamon" => Some(DesktopEnvironment::Cinnamon),
         "XFCE" => Some(DesktopEnvironment::Xfce),
+        "ubuntu:GNOME" => Some(DesktopEnvironment::Gnome),
         _ => None,
       })
   }
