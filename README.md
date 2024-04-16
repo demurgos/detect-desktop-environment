@@ -40,13 +40,23 @@ section.
 |-----------------|--------------------------------------------------|
 | `Cinnamon`      | ![Cinnamon](./thumbnails/cinnamon.png)           |
 | `Cosmic`        | ![COSMIC](./thumbnails/cosmic.png)               |
+| `Dde`           | ![Deepin DE](./thumbnails/dde.png)               |
+| `Ede`           | ![EDE](./thumbnails/ede.png)                     |
+| `Endless`       | ![Endless](./thumbnails/endless.png)             |
 | `Enlightenment` | ![Enlightenment](./thumbnails/enlightenment.png) |
 | `Gnome`         | ![Gnome](./thumbnails/gnome.png)                 |
+| `Hyprland`      | ![Hyprland](./thumbnails/hyprland.png)           |
 | `Kde`           | ![Kde](./thumbnails/kde.png)                     |
 | `Lxde`          | ![Lxde](./thumbnails/lxde.png)                   |
 | `Lxqt`          | ![Lxqt](./thumbnails/lxqt.png)                   |
 | `MacOs`         | ![MacOs](./thumbnails/mac-os.png)                |
 | `Mate`          | ![Mate](./thumbnails/mate.png)                   |
+| `Old`           | ![Old](./thumbnails/old.png)                     |
+| `Pantheon`      | ![Pantheon](./thumbnails/pantheon.png)           |
+| `Razor`         | ![Razor](./thumbnails/razor.png)                 |
+| `Rox`           | ![Rox](./thumbnails/rox.png)                     |
+| `Sway`          | ![Sway](./thumbnails/sway.png)                   |
+| `Tde`           | ![Tde](./thumbnails/tde.png)                     |
 | `Unity`         | ![Unity](./thumbnails/unity.png)                 |
 | `Windows`       | ![Windows](./thumbnails/windows.png)             |
 | `Xfce`          | ![Xfce](./thumbnails/xfce.png)                   |
