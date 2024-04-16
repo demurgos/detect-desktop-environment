@@ -1,4 +1,4 @@
-# Next
+# 1.1.0 (2024-04-16)
 
 - **[Feature]** Detect more environments: Deepin DE, EDE, Endless OS, Hyprland, Old (legacy menus), Pantheon (Elementary OS), Razor, ROX, Sway, Trinity DE ([@nagua](https://github.com/nagua), [#6](https://github.com/demurgos/detect-desktop-environment/pull/6))
 - **[Fix]** Fix parsing of `XDG_CURERNT_DESKTOP` ([@nagua](https://github.com/nagua), [#6](https://github.com/demurgos/detect-desktop-environment/pull/6))
