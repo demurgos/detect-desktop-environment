@@ -2,7 +2,7 @@
 
 [![GitHub](https://img.shields.io/badge/GitHub-demurgos%2Fdetect--desktop--environment-informational.svg?maxAge=86400)](https://github.com/demurgos/detect-desktop-environment)
 [![crates.io](https://img.shields.io/crates/v/detect-desktop-environment.svg?maxAge=86400)](https://crates.io/crates/detect-desktop-environment)
-[![CI status](https://img.shields.io/github/actions/workflow/status/demurgos/detect-desktop-environment/check-rs.yml.svg?branch=main&maxAge=86400)](https://github.com/demurgos/detect-desktop-environment/actions/workflows/check-rs.yml)
+[![CI status](https://img.shields.io/github/actions/workflow/status/demurgos/detect-desktop-environment/check-rs.yml.svg?branch=main&maxAge=86400)](https://github.com/demurgos/detect-desktop-environment/actions/workflows/check-rs.yml?query=branch%3Amain)
 [![docs.rs/detect-desktop-environment](https://img.shields.io/docsrs/detect-desktop-environment.svg?maxAge=86400)](https://docs.rs/detect-desktop-environment)
 [![license MIT](https://img.shields.io/badge/license-MIT-green)](./LICENSE.md)
 

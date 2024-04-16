@@ -198,10 +198,10 @@ impl DesktopEnvironment {
   /// ```
   /// use detect_desktop_environment::DesktopEnvironment;
   ///
-  /// assert_eq!("KDE", Some(DesktopEnvironment::Kde));
-  /// assert_eq!("kde", None); // must be uppercase
-  /// assert_eq!("SWAY", None); // not registered
-  /// assert_eq!("unknown_de", None);
+  /// assert_eq!(Some(DesktopEnvironment::Kde), DesktopEnvironment::from_freedesktop("KDE"));
+  /// assert_eq!(None, DesktopEnvironment::from_freedesktop("kde")); // must be uppercase
+  /// assert_eq!(None, DesktopEnvironment::from_freedesktop("SWAY")); // not registered
+  /// assert_eq!(None, DesktopEnvironment::from_freedesktop("unknown_de"));
   /// ```
   pub fn from_freedesktop(name: &str) -> Option<Self> {
     // the patterns in the match below are ordered to match the order in the freedesktop table
@@ -239,10 +239,10 @@ impl DesktopEnvironment {
   /// ```
   /// use detect_desktop_environment::DesktopEnvironment;
   ///
-  /// assert_eq!("KDE", Some(DesktopEnvironment::Kde)); // freedesktop DE
-  /// assert_eq!("kde", None); // must be uppercase
-  /// assert_eq!("SWAY", Some(DesktopEnvironment::Sway)); // not registered
-  /// assert_eq!("unknown_de", None);
+  /// assert_eq!(Some(DesktopEnvironment::Kde), DesktopEnvironment::from_xdg_name("KDE")); // freedesktop DE
+  /// assert_eq!(None, DesktopEnvironment::from_xdg_name("kde")); // must be uppercase
+  /// assert_eq!(Some(DesktopEnvironment::Sway), DesktopEnvironment::from_xdg_name("SWAY")); // not registered
+  /// assert_eq!(None, DesktopEnvironment::from_xdg_name("unknown_de"));
   /// ```
   pub fn from_xdg_name(name: &str) -> Option<Self> {
     if let Some(de) = Self::from_freedesktop(name) {
