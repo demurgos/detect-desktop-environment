@@ -207,7 +207,7 @@ impl DesktopEnvironment {
     // the patterns in the match below are ordered to match the order in the freedesktop table
     match name {
       "GNOME" => Some(DesktopEnvironment::Gnome),
-      "GNOME-Classice" => Some(DesktopEnvironment::Gnome),
+      "GNOME-Classic" => Some(DesktopEnvironment::Gnome),
       "GNOME-Flashback" => Some(DesktopEnvironment::Gnome),
       "KDE" => Some(DesktopEnvironment::Kde),
       "LXDE" => Some(DesktopEnvironment::Lxde),
