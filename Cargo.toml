@@ -11,6 +11,7 @@ keywords = ["desktop-environment", "detect", "env"]
 categories = ["gui", "os"]
 license = "MIT"
 edition = "2021"
+exclude = ["thumbnails"]
 # Rust support policy:
 # - The 8 last stable versions are supported (1 year)
 # - Other versions are supported on a best-effort basis

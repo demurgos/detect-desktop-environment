@@ -1,6 +1,7 @@
 # Next
 
 - **[Fix]** Fix spelling when matching `GNOME-Classic`. ([@bash](https://github.com/bash), [#11](https://github.com/demurgos/detect-desktop-environment/pull/11))
+- **[Fix]** Remove thumbnails from Cargo package, for faster downloads. ([@bbb651](https://github.com/bbb651), [#12](https://github.com/demurgos/detect-desktop-environment/pull/12))
 
 # 1.1.0 (2024-04-16)
 
