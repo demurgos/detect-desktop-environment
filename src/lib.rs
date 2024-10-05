@@ -25,14 +25,21 @@ pub enum DesktopEnvironment {
   ///
   /// - <https://en.wikipedia.org/wiki/Cinnamon_(desktop_environment)>
   Cinnamon,
-  /// COSMIC, the default desktop environment for Linux Pop!_OS.
+  /// COSMIC, the legacy GNOME-based desktop environment for Linux Pop!_OS.
   ///
-  /// Note: This corresponds to the classic COSMIC based on GNOME, not the Rust
-  /// [COSMIC-epoch](https://github.com/pop-os/cosmic-epoch). Please send a PR if you can
-  /// test how to detect cosmic-epoch.
+  /// Note: This corresponds to the classic COSMIC based on GNOME. For the new
+  /// [COSMIC Epoch](https://github.com/pop-os/cosmic-epoch) desktop
+  /// environment built in Rust, use [`DesktopEnvironment::CosmicEpoch`].
   ///
   /// - <https://github.com/pop-os/cosmic>
   Cosmic,
+  /// COSMIC Epoch
+  ///
+  /// Note: This corresponds to the new COSMIC desktop environment
+  /// built by System76 in Rust for Linux Pop!_OS.
+  ///
+  /// - <https://github.com/pop-os/cosmic-epoch>
+  CosmicEpoch,
   /// Deepin desktop environment
   ///
   /// - <https://www.deepin.org/index/en>
@@ -206,6 +213,7 @@ impl DesktopEnvironment {
   pub fn from_freedesktop(name: &str) -> Option<Self> {
     // the patterns in the match below are ordered to match the order in the freedesktop table
     match name {
+      "COSMIC" => Some(DesktopEnvironment::CosmicEpoch),
       "GNOME" => Some(DesktopEnvironment::Gnome),
       "GNOME-Classic" => Some(DesktopEnvironment::Gnome),
       "GNOME-Flashback" => Some(DesktopEnvironment::Gnome),
@@ -367,6 +375,10 @@ mod tests {
     assert_eq!(
       DesktopEnvironment::from_xdg_current_desktop("Hyprland"),
       Some(DesktopEnvironment::Hyprland)
+    );
+    assert_eq!(
+      DesktopEnvironment::from_xdg_current_desktop("COSMIC"),
+      Some(DesktopEnvironment::CosmicEpoch)
     );
 
     // Colon splitting

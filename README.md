@@ -40,6 +40,7 @@ section.
 |-----------------|--------------------------------------------------|
 | `Cinnamon`      | ![Cinnamon](./thumbnails/cinnamon.png)           |
 | `Cosmic`        | ![COSMIC](./thumbnails/cosmic.png)               |
+| `Cosmic Epoch`  | ![COSMIC Epoch](./thumbnails/cosmic-epoch.png)   |
 | `Dde`           | ![Deepin DE](./thumbnails/dde.png)               |
 | `Ede`           | ![EDE](./thumbnails/ede.png)                     |
 | `Endless`       | ![Endless](./thumbnails/endless.png)             |

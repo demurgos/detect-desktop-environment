@@ -1,5 +1,6 @@
 # Next
 
+- **[Feature]** Detect COSMIC Epoch. ([@netraptor](https://github.com/netraptor), [#13](https://github.com/demurgos/detect-desktop-environment/pull/13))
 - **[Fix]** Fix spelling when matching `GNOME-Classic`. ([@bash](https://github.com/bash), [#11](https://github.com/demurgos/detect-desktop-environment/pull/11))
 - **[Fix]** Remove thumbnails from Cargo package, for faster downloads. ([@bbb651](https://github.com/bbb651), [#12](https://github.com/demurgos/detect-desktop-environment/pull/12))
 
