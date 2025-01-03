@@ -1,4 +1,4 @@
-# Next
+# 1.2.0 (2025-01-03)
 
 - **[Feature]** Detect COSMIC Epoch. ([@netraptor](https://github.com/netraptor), [#13](https://github.com/demurgos/detect-desktop-environment/pull/13))
 - **[Fix]** Fix spelling when matching `GNOME-Classic`. ([@bash](https://github.com/bash), [#11](https://github.com/demurgos/detect-desktop-environment/pull/11))
