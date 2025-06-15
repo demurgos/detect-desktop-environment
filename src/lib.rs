@@ -261,7 +261,7 @@ impl DesktopEnvironment {
     match name {
       "ENLIGHTENMENT" => Some(DesktopEnvironment::Enlightenment),
       "Hyprland" => Some(DesktopEnvironment::Hyprland),
-      "SWAY" => Some(DesktopEnvironment::Sway),
+      "SWAY" | "sway" => Some(DesktopEnvironment::Sway),
       "X-Cinnamon" => Some(DesktopEnvironment::Cinnamon),
       _ => None,
     }
