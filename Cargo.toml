@@ -20,6 +20,10 @@ exclude = ["thumbnails"]
 # - Bumping the `rust-version` is a semver-minor change.
 rust-version = "1.56.1"
 
+[lints.clippy]
+exhaustive_enums = { level = "deny" }
+exhaustive_structs = { level = "deny" }
+
 [lib]
 name = "detect_desktop_environment"
 path = "src/lib.rs"
