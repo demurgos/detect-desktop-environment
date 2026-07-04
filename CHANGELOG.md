@@ -1,3 +1,7 @@
+# Next
+
+- **[Feature]** Implement `core::fmt::Display` for `DesktopEnvironment`. ([@SzilvasiPeter](https://github.com/SzilvasiPeter), [#19](https://github.com/demurgos/detect-desktop-environment/pull/19))
+
 # 1.2.0 (2025-01-03)
 
 - **[Feature]** Detect COSMIC Epoch. ([@netraptor](https://github.com/netraptor), [#13](https://github.com/demurgos/detect-desktop-environment/pull/13))

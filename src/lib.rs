@@ -16,7 +16,14 @@
 //! }
 //! ```
 
+use core::fmt;
+
 /// Desktop environments supported by `detect-desktop-environment`.
+///
+/// This enum provides a best-effort implementation of [`fmt::Display`]. It
+/// prints the name of the desktop environment in English. The exact string
+/// is *NOT* guaranteed to be stable: it may be updated as part of a minor
+/// release.
 // If adding new environment, please keep them sorted alphabetically and use `PascalCase`.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 #[non_exhaustive]
@@ -154,7 +161,10 @@ impl DesktopEnvironment {
   /// ```
   pub const fn gtk(self) -> bool {
     use DesktopEnvironment::*;
-    matches!(self, Cinnamon | Cosmic | Dde | Gnome | Lxde | Mate | Pantheon | Unity | Xfce)
+    matches!(
+      self,
+      Cinnamon | Cosmic | Dde | Gnome | Lxde | Mate | Pantheon | Unity | Xfce
+    )
   }
 
   /// Test if the desktop environment is based on the Qt framework
@@ -189,7 +199,10 @@ impl DesktopEnvironment {
 
   #[cfg(not(any(target_os = "macos", target_os = "windows")))]
   fn detect_impl() -> Option<Self> {
-    std::env::var("XDG_CURRENT_DESKTOP").ok().as_deref().and_then(Self::from_xdg_current_desktop)
+    std::env::var("XDG_CURRENT_DESKTOP")
+      .ok()
+      .as_deref()
+      .and_then(Self::from_xdg_current_desktop)
   }
 
   /// Parse the desktop environment from the name registered with Freedesktop.org
@@ -230,8 +243,8 @@ impl DesktopEnvironment {
       "Cinnamon" => Some(DesktopEnvironment::Cinnamon),
       "Pantheon" => Some(DesktopEnvironment::Pantheon),
       "DDE" => Some(DesktopEnvironment::Dde),
-      "Endless" =>Some(DesktopEnvironment::Endless),
-      "Old" =>Some(DesktopEnvironment::Old),
+      "Endless" => Some(DesktopEnvironment::Endless),
+      "Old" => Some(DesktopEnvironment::Old),
       _ => None,
     }
   }
@@ -286,26 +299,56 @@ impl DesktopEnvironment {
           // Some of the entries don't even represent a DE (e.g. `ubuntu:GNOME`, where `ubuntu` is
           // a distro, not a DE)
           // If you want more control over this, open an issue to discuss it.
-          continue
-        },
+          continue;
+        }
       };
       match resolved {
         None => {
           // first successfully parsed DE, store it but keep iterating to check for conflicts
           resolved = Some(de)
-        },
+        }
         Some(prev) => {
           // a DE was already parsed previously, duplicates are allowed but a conflict causes
           // immediate rejection with `None`.
           // If you want more control over this, open an issue to discuss it.
           if de != prev {
-            return None
+            return None;
           }
         }
       }
     }
 
     resolved
+  }
+}
+
+impl fmt::Display for DesktopEnvironment {
+  fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+    match self {
+      Self::Cinnamon => write!(f, "Cinnamon"),
+      Self::Cosmic => write!(f, "COSMIC"),
+      Self::CosmicEpoch => write!(f, "COSMIC Epoch"),
+      Self::Dde => write!(f, "Deepin"),
+      Self::Ede => write!(f, "EDE"),
+      Self::Endless => write!(f, "Endless"),
+      Self::Enlightenment => write!(f, "Enlightenment"),
+      Self::Gnome => write!(f, "GNOME"),
+      Self::Hyprland => write!(f, "Hyprland"),
+      Self::Kde => write!(f, "KDE Plasma"),
+      Self::Lxde => write!(f, "LXDE"),
+      Self::Lxqt => write!(f, "LXQt"),
+      Self::MacOs => write!(f, "macOS"),
+      Self::Mate => write!(f, "MATE"),
+      Self::Old => write!(f, "Old"),
+      Self::Pantheon => write!(f, "Pantheon"),
+      Self::Razor => write!(f, "Razor"),
+      Self::Rox => write!(f, "ROX"),
+      Self::Sway => write!(f, "Sway"),
+      Self::Tde => write!(f, "TDE"),
+      Self::Unity => write!(f, "Unity"),
+      Self::Windows => write!(f, "Windows"),
+      Self::Xfce => write!(f, "Xfce"),
+    }
   }
 }
 
@@ -396,14 +439,8 @@ mod tests {
     );
 
     // Mixed messages
-    assert_eq!(
-      DesktopEnvironment::from_xdg_current_desktop("KDE:GNOME"),
-      None
-    );
-    assert_eq!(
-      DesktopEnvironment::from_xdg_current_desktop("ubuntu:KDE:GNOME"),
-      None
-    );
+    assert_eq!(DesktopEnvironment::from_xdg_current_desktop("KDE:GNOME"), None);
+    assert_eq!(DesktopEnvironment::from_xdg_current_desktop("ubuntu:KDE:GNOME"), None);
 
     // Strange cases
     assert_eq!(
@@ -412,15 +449,9 @@ mod tests {
     );
 
     // Empty string
-    assert_eq!(
-      DesktopEnvironment::from_xdg_current_desktop(""),
-      None
-    );
+    assert_eq!(DesktopEnvironment::from_xdg_current_desktop(""), None);
 
     // Unknown Desktop Environment
-    assert_eq!(
-      DesktopEnvironment::from_xdg_current_desktop("foo"),
-      None
-    );
+    assert_eq!(DesktopEnvironment::from_xdg_current_desktop("foo"), None);
   }
 }
