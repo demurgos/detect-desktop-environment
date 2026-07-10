@@ -1,6 +1,9 @@
 # Next
 
+# 1.3.0 (2026-07-10)
+
 - **[Feature]** Implement `core::fmt::Display` for `DesktopEnvironment`. ([@SzilvasiPeter](https://github.com/SzilvasiPeter), [#19](https://github.com/demurgos/detect-desktop-environment/pull/19))
+- **[Fix]** Fix SWAY detection for Fedora ([@derdilla](https://github.com/derdilla), [#16](https://github.com/demurgos/detect-desktop-environment/pull/16))
 
 # 1.2.0 (2025-01-03)
 
